@@ -1,10 +1,8 @@
 Ember Basics
 ============
 
-A remote repository for developing the emberjs framework.
+A repository for developing ember javascript.
 
-### Another Header
+### Another Header Placeholder
 
-[Remote Site] (http://donirby.net/backbone)
-
-[Emberjs Doc] (http://emberjs.com)
+[Emberjs Website] (http://emberjs.com)
