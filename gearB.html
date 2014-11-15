@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Machine Design</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--
+    DEFAULT APPLICATION TEMPLATE: This gets rendered in a browser as soon as "Ember.Application.create()" happens.
+  -->
+
+  <script type="text/x-handlebars">
+    <div class="container">
+      <header class="headerClass">
+        <h1 class="logo">
+          {{#link-to "index" class="homepageLinkClass"}}
+            Machine Design
+          {{/link-to}}
+        </h1>
+      </header>
+      <nav class="navClass centerText">
+        {{#link-to "index" class="btn btn-primary"}}Gear{{/link-to}}
+        {{#link-to "collections" class="btn btn-primary"}}Analyze{{/link-to}}
+		{{#link-to "comparisons" class="btn btn-primary"}}Compare{{/link-to}}
+        {{#link-to "exhibits" class="btn btn-primary"}}Model{{/link-to}}
+        {{#link-to "notes" class="btn btn-primary"}}Note{{/link-to}}
+      </nav>
+      <main class="mainClass cf">{{outlet}}</main>
+      <footer class="footerClass centerText cf">
+        <small>&copy; DONIRBY.NET &mdash; Worldwide Web Development and Design</small>
+      </footer>
+    </div>
+  </script>
+
+  <!--
+    The app's entire page structure is above this comment line.
+    All of our single-page templates are below this comment line.
+  -->
+
+  <!--
+    ====================================================
+    "HOME" PAGE TEMPLATE: displays the Home page content 
+    ====================================================
+
+  <script type="text/x-handlebars" data-template-name="index">
+    <section id="home" class="pageClass clearfix">
+      <h2 class="homepageHeader">Machine Element Design</h2>
+      <div class="homePageDiv vertAlign">
+      <img src="algor/supplement/Images/MotorMountTITLE.PNG" width="400" height="300" alt="Home" align="left" class="imageBorder" />
+      </div>
+      <div class="homePageDiv homePageCopy">
+        MOTOR MOUNT ASSEMBLY &mdash; Static Stress Analysis using a Linear Materials Model. The Motor Mount Assembly supports an electric motor bolted to the arms of the assembly. The arms are then fixed to the shaft, and the shaft is grounded with bolts on both ends. 
+          <br><br>
+          {{#link-to "collections"}}<strong>learn more &raquo;</strong>{{/link-to}} 
+      </div>
+    </section>
+  </script>
+  -->
+  <!--
+    =================================================
+    "ABOUT" PAGE TEMPLATE: displays the About content 
+    =================================================
+  -->
+
+  <script type="text/x-handlebars" id="about">
+    <section id="about" class="pageClass clearfix">
+      <h2 class="homepageHeader">Machine Element Design</h2>
+	  <div class="homePageDiv vertAlign">
+      <img src="algor/supplement/Images/MotorMountTITLE.PNG" width="400" height="300" alt="About" align="left" class="imageBorder" />
+	  </div>
+      <div class="homePageDiv homePageCopy">
+        MOTOR MOUNT ASSEMBLY &mdash; Static Stress Analysis using a Linear Materials Model. The Motor Mount Assembly supports an electric motor bolted to the arms of the assembly. The arms are then fixed to the shaft, and the shaft is grounded with bolts on both ends.
+          <br><br>
+          {{#link-to "collections"}}<strong>learn more &raquo;</strong>{{/link-to}} 
+      </div>
+    </section>
+  </script>
+
+  <!--
+    ============================================================
+    "COLLECTIONS" PAGE/TEMPLATE: displays the Collection content 
+    ============================================================
+  -->
+
+    <script type="text/x-handlebars" id="components/single-collection">
+      <h3>{{title}}</h3>
+      <img {{bind-attr src=image}} class="collectionsImage" width="400" height="300" align="left">
+      {{yield}}
+	  <br></br>
+	  <a {{bind-attr href="link2"}} target="new"><strong>analysis details &raquo;</strong></a>
+    </script>
+    <script type="text/x-handlebars" id="collections">
+      <section class="pageClass clearfix">
+        <h2>Design Stress Analysis</h2>
+        {{#each}}
+          {{#single-collection title=title image=image link1=link1 link2=link2}}
+            {{copy}}
+          {{/single-collection}}
+        {{/each}}
+      </section>
+    </script>
+
+
+  <!--
+    ============================================================
+    "COMPARISONS" PAGE/TEMPLATE: displays the Comparison content 
+    ============================================================
+  -->
+
+    <script type="text/x-handlebars" id="components/single-comparison">
+      <h3>{{title}}</h3>
+      <img {{bind-attr src=image1}} class="comparisonsImage" width="400" height="300" align="left">	  
+      <img {{bind-attr src=image2}} class="comparisonsImage" width="400" height="300" align="left">
+      {{yield}}
+	  <br></br>
+	  <a {{bind-attr href="link2"}} target="new"><strong>analysis details &raquo;</strong></a>
+<!--  {{#link-to 'about'}}About {{title}}{{/link-to}}     LINK TO NEW PAGE -->
+    </script>
+    <script type="text/x-handlebars" id="comparisons">
+      <section class="pageClass clearfix">
+        <h2>Comparative Models</h2>
+        {{#each}}
+          {{#single-comparison title=title image1=image1 image2=image2 link1=link1 link2=link2}}
+            {{copy}}
+          {{/single-comparison}}
+        {{/each}}
+      </section>
+    </script>
+
+  <!--
+    ===================================================
+    "EXHIBITS" PAGE/TEMPLATE: displays all the exhibits 
+    ===================================================
+  -->
+  <script type="text/x-handlebars" id="exhibits">
+    <div class="pageClass">
+      <section class="exhibitSection cf">
+        <h2>Finite Element Models</h2>
+        <div>
+          There are currently <strong><em>{{totalExhibits}}</em></strong> machine parts in design!!!
+        </div>
+        <ul class="singleExhibitList cf">
+        {{#each}}
+          <li class="singleExhibitListItem">
+            <h3>
+              {{#link-to 'exhibit' this}}
+                {{title}}
+              {{/link-to}}
+            </h3>
+            <span><em> &mdash; <strong>{{artist_name}}</strong></em></span>
+          </li>
+        {{/each}}
+        </ul>
+        <div>{{outlet}}</div>
+      </section>
+    </div>
+  </script>
+
+  <!--
+    =========================================================
+    "EXHIBIT" PAGE/TEMPLATE: lists only one exhibit at a time
+    =========================================================
+  -->
+  <script type="text/x-handlebars" id="exhibit">
+    <article class="singleExhibitContent">
+    <h2>{{exhibitTitle}}</h2>
+	<h3><a {{bind-attr href="link1"}} target="new"><strong>analysis details &raquo;</strong></a></h3>
+      <p>
+        <img {{bind-attr src=image1}} class="singleExhibitImage imageBorder" align="left" />
+        {{exhibit_info}}
+		{{#link-to 'gear'}} About {{link1}}{{/link-to}}  <!-- LINK TO NEW PAGE --> 
+      </p>
+    </article>
+  </script>
+
+  <!--
+    ===============================================
+    "NOTE" PAGE/TEMPLATE: displays the Note content
+    ===============================================
+  -->
+
+  <script type="text/x-handlebars" id="notes">
+    <article class="pageClass">
+      <h2>Notes</h2>
+      {{textarea placeholder="create a new note" value=newNote rows=10 cols=50}}
+      <p class="btnVolunteerParagraph">
+        <button {{action "newNote"}} class="btn btn-info">Save this note</button>
+      </p>
+      {{#each itemController="note"}}
+        <div class="singleEntry">
+        {{#if isEditing}}
+          <p><strong>EDIT THIS NOTE...</strong></p>
+          {{update-note value=copy}}
+          <p class="btnVolunteerParagraph">
+            <button {{action "saveNewNote"}} class="btn btn-info">Save this note</button>
+          </p>
+        {{else}}
+          {{copy}}
+          <hr/>
+          <p class="btnVolunteerParagraph">
+            <button {{action "editNote"}} class="btn btn-info">Edit this note</button>
+            <button {{action "deleteNote"}} class="btn btn-info">Delete this note</button>
+          </p>
+        {{/if}}
+        </div>
+      {{/each}}
+    </article>
+  </script>
+
+   <!--
+    ====================================================
+    "GEAR" PAGE TEMPLATE: displays the Gear page content 
+    ====================================================
+  -->
+  <script type="text/x-handlebars" data-template-name="index">
+    <section id="home" class="pageClass clearfix">
+      <h2 class="homepageHeader">Gear Train Asembly</h2>
+      <div class="homePageDiv vertAlign">
+      <img src="algor/supplement/Images/Exercise B-RESULTS-0.PNG" width="400" height="300" alt="Home" align="left" class="imageBorder" />
+      </div>
+      <div class="homePageDiv homePageCopy">
+        GEAR TRAIN ASSEMBLY &mdash; Static Stress Analysis using a Linear Materials Model. 
+          <br><br>
+          {{#link-to "collections"}}<strong>learn more &raquo;</strong>{{/link-to}} 
+      </div>
+    </section>
+  </script>
+ 
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember.min.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/libs/localstorage_adapter.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

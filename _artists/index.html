@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SAMOCA - San Angelico Museum of Contemporary Art</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--
+    DEFAULT APPLICATION TEMPLATE: This gets rendered in a browser as soon as "Ember.Application.create()" happens.
+  -->
+
+  <script type="text/x-handlebars">
+    <div class="container">
+      <header class="headerClass">
+        <h1 class="logo">
+          <a href="#" class="homepageLinkClass">
+            SAMOCA - San Angelico Museum of Contemporary Art
+          </a>
+        </h1>
+      </header>
+      <nav class="navClass centerText">
+        {{#link-to "artist" class="btn btn-primary"}}Artists{{/link-to}}
+      </nav>
+      <main>{{outlet}}</main>
+      <footer class="footerClass centerText cf">
+        <small>&copy; San Angelico Museum of Contemporary Art, 123 Main Street, Ventura, CA 12345 (800)555-1212</small>
+      </footer>
+    </div>
+  </script>
+
+  <!--
+    The app's entire page structure is above this comment line.
+    All of our single-page templates are below this comment line.
+  -->
+
+
+
+  <!-- "yield" code starts here-->
+
+
+
+  <script type="text/x-handlebars" id="components/artist-info">
+    {{yield}}
+  </script>
+
+
+  <script type="text/x-handlebars" id="artist">
+    <section class="pageClass clearfix">
+      <h2>Gear Train</h2>
+      <ul>  
+      {{#each}}
+        {{#artist-info}}
+          <a href = "{{artist}}"> {{work}}</a>
+        {{/artist-info}}
+      {{/each}}
+      </ul>
+    </section>
+  </script>
+
+
+  <!-- "yield" code ends here-->
+  
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

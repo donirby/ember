@@ -1,0 +1,34 @@
+{
+  "exhibits": [
+    {
+      "id": 1,
+      "artist_name": "Static Stress",
+      "title": "Gear A",
+      "exhibit_info": "Static Stress using Linear Material Models.",
+      "image1": "algor/supplement/Images/Exercise ATITLE.PNG",
+	  "image2": "",
+	  "link1": "gearA.html",
+	  "link2": ""
+    },
+    {
+      "id": 2,
+      "artist_name": "Static Stress",
+      "title": "Gear B",
+      "exhibit_info": "Static Stress using Linear Material Models.",
+      "image1": "algor/supplement/Images/Exercise BTITLE.PNG",
+	  "image2": "",
+	  "link1": "gearB.html",
+	  "link2": ""
+    },
+    {
+      "id": 3,
+      "artist_name":  "Static Stress",
+      "title": "Motor Mount",
+      "exhibit_info": "Static Stress using Linear Material Models.",
+      "image1": "algor/supplement/Images/MotorMountTITLE.PNG",
+	  "image2": "",
+	  "link1": "mount.html",
+	  "link2": ""
+    }
+  ]
+}

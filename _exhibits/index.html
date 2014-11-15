@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SAMOCA - San Angelico Museum of Contemporary Art</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--
+    DEFAULT APPLICATION TEMPLATE: This gets rendered in a browser as soon as "Ember.Application.create()" happens.
+  -->
+
+  <script type="text/x-handlebars">
+    <div class="container">
+      <header class="headerClass">
+        <h1 class="logo">
+          <a href="#" class="homepageLinkClass">
+            SAMOCA - San Angelico Museum of Contemporary Art
+          </a>
+        </h1>
+      </header>
+      <nav class="navClass centerText">
+        {{#link-to "abstractionist" class="artistLink"}}Abstractionist{{/link-to}}
+        {{#link-to "birds" class="artistLink"}}Birds{{/link-to}}
+        {{#link-to "general" class="artistLink"}}General{{/link-to}}
+      </nav>
+      <div>
+        {{outlet}}
+      </div>
+      <footer class="footerClass centerText cf">
+        <small>&copy; San Angelico Museum of Contemporary Art, 123 Main Street, Ventura, CA 12345 (800)555-1212</small>
+      </footer>
+    </div>
+  </script>
+
+  <!--
+    The app's entire page structure is above this comment line.
+    All of our single-page templates are below this comment line.
+  -->
+  
+  <script type="text/x-handlebars" id="abstractionist">
+    <h1>Avery Washington</h1>
+    <p>SAMOCA presents a collection of paintings by Avery Washington,described by Art World as "the pre-eminent American post-painterly abstractionist, rejecting Rothko's mantle and running to the edges of color field theory." This exhibit includes work shown at the Gauggossian (NYC), MoMA, and Greene & Stromberg, and several paintings making their debut at SAMOCA.</p>
+  </script>
+
+  <script type="text/x-handlebars" id="birds">
+    <h1>Paul Shellington</h1>
+    <p>Paul Shellington's first exhibit in the United States, Bird Watching, showcases some of the finest paintings and drawings from his delicate and whimsical body of work. Shellington's work as an illustrator has been featured in magazines such as New Yorker and The Atlantic and he has become famed for his fanciful hand-drawn animations, including the Oscar-winning short, A Balloon for Marcel.</p>
+  </script>
+
+  <script type="text/x-handlebars" id="general">
+    <h1>Jacob Mars</h1>
+    <p>The SAMOCA board of directors are pleased to announce the acquisition of a wide range of works, including new artist Jacob Mars.</p>
+  </script>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
